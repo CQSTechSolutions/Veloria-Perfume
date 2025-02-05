@@ -19,6 +19,25 @@ const HomePage = () => {
         </div>
       </section>
       
+      {/* Categories Section */}
+      <section className="text-center py-16 bg-gray-100">
+        <h2 className="text-3xl font-semibold text-gray-800">Explore Our Categories</h2>
+        <div className="grid grid-cols-3 gap-6 mt-8 mx-20">
+          <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl cursor-pointer">
+            <img src="/men-perfume.jpg" alt="Men's Perfume" className="w-full rounded-lg" />
+            <h3 className="text-xl font-semibold mt-4">Men's Collection</h3>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl cursor-pointer">
+            <img src="/women-perfume.jpg" alt="Women's Perfume" className="w-full rounded-lg" />
+            <h3 className="text-xl font-semibold mt-4">Women's Collection</h3>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl cursor-pointer">
+            <img src="/unisex-perfume.jpg" alt="Unisex Perfume" className="w-full rounded-lg" />
+            <h3 className="text-xl font-semibold mt-4">Unisex Collection</h3>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Section */}
       <section className="text-center py-16 bg-gray-50">
         <h2 className="text-3xl font-semibold text-gray-800">Featured Perfumes</h2>
