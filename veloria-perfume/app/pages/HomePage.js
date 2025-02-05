@@ -1,10 +1,57 @@
-import React from 'react'
+"use client";
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const HomePage = () => {
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex === offers.length - 1 ? 0 : prevIndex + 1));
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const offers = [
+    { id: 1, text: "Valentine's Special - Buy 1 Get 1 Free!", image: "/offer1.jpg" },
+    { id: 2, text: "20% Off on All Perfumes - Limited Time!", image: "/offer2.jpg" },
+    { id: 3, text: "Exclusive Valentine's Gift Sets - Shop Now!", image: "/offer3.jpg" }
+  ];
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? offers.length - 1 : prevIndex - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === offers.length - 1 ? 0 : prevIndex + 1));
+  };
+
   return (
     <div>
       <Navbar />
+
+      {/* Carousel Section */}
+      <section className="relative w-full h-[400px] overflow-hidden">
+        <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+          {offers.map((offer) => (
+            <div key={offer.id} className="w-full flex-shrink-0 relative">
+              <img src={offer.image} alt={offer.text} className="w-full h-[400px] object-cover" />
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                <h2 className="text-white text-2xl font-bold">{offer.text}</h2>
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* Navigation Buttons */}
+        <button onClick={prevSlide} className="absolute left-5 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">
+          <ChevronLeft size={24} />
+        </button>
+        <button onClick={nextSlide} className="absolute right-5 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">
+          <ChevronRight size={24} />
+        </button>
+      </section>
 
       {/* Hero Section */}
       <section className="relative bg-cover bg-center h-[500px] flex items-center justify-center text-center" style={{ backgroundImage: "url('/veloria-hero.jpg')" }}>

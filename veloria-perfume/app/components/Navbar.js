@@ -1,7 +1,14 @@
+"use client";
 import Link from 'next/link';
 import { ShoppingCart, Search, User } from 'lucide-react';
+import Products from '../products/page';
 
 const Navbar = () => {
+
+  const handleProducts = () => {
+    <Products />
+  }
+
   return (
     <nav className="bg-white shadow-md p-4 flex justify-between items-center">
       {/* Logo */}
@@ -21,7 +28,7 @@ const Navbar = () => {
 
       {/* Navigation Links */}
       <div className="flex items-center gap-6">
-        <Link href="/products" className="text-gray-700 hover:text-gray-900">Products</Link>
+        <Link onClick={handleProducts} href="/products" className="text-gray-700 hover:text-gray-900">Products</Link>
         <Link href="/cart" className="relative">
           <ShoppingCart size={24} className="text-gray-700 hover:text-gray-900" />
           <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] px-2 py-1 rounded-full">0</span>
