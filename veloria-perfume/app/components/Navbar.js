@@ -2,11 +2,19 @@
 import Link from 'next/link';
 import { ShoppingCart, Search, User } from 'lucide-react';
 import Products from '../products/page';
+import Cart from '../cart/page';
+import Profile from '../profile/page';
 
 const Navbar = () => {
 
   const handleProducts = () => {
     <Products />
+  }
+  const handleCart = () => {
+    <Cart />
+  }
+  const handleProfile = () => {
+    <Profile />
   }
 
   return (
@@ -29,11 +37,11 @@ const Navbar = () => {
       {/* Navigation Links */}
       <div className="flex items-center gap-6">
         <Link onClick={handleProducts} href="/products" className="text-gray-700 hover:text-gray-900">Products</Link>
-        <Link href="/cart" className="relative">
+        <Link onClick={handleCart} href="/cart" className="relative">
           <ShoppingCart size={24} className="text-gray-700 hover:text-gray-900" />
           <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] px-2 py-1 rounded-full">0</span>
         </Link>
-        <Link href="/profile" className="text-gray-700 hover:text-gray-900">
+        <Link onClick={handleProfile} href="/profile" className="text-gray-700 hover:text-gray-900">
           <User size={24} />
         </Link>
       </div>
