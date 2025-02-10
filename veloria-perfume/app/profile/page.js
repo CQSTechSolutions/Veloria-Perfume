@@ -7,21 +7,21 @@ const Profile = () => {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "" });
+  const [formData, setFormData] = useState({ fullname: "", email: "" });
 
   useEffect(() => {
     // Simulate fetching user details (Replace with actual authentication logic)
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser) {
       setUser(storedUser);
-      setFormData({ name: storedUser.name, email: storedUser.email });
+      setFormData({ fullname: storedUser.fullname, email: storedUser.email });
     } else {
       router.push("/login");
     }
   }, [router]);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.fullname]: e.target.value });
   };
 
   const handleSave = () => {
@@ -42,7 +42,7 @@ const Profile = () => {
             <input
               type="text"
               name="name"
-              value={formData.name}
+              value={formData.fullname}
               onChange={handleChange}
               className="w-full p-2 border rounded-md mb-4"
             />
