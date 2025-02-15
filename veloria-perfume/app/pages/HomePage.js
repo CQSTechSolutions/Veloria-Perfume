@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import Footer from '../components/Footer';
 
 const HomePage = () => {
 
@@ -114,6 +115,8 @@ const HomePage = () => {
           
         </div>
       </section>
+
+      <Footer/>
     </div>
   )
 }
