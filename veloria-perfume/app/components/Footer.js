@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
         {/* Logo */}
         <div className="flex items-center">
-          <img src="/logo.png" alt="Veloria Perfumes" className="w-16 h-16" />
+          <img src= "https://png.pngtree.com/png-clipart/20240804/original/pngtree-luxury-perfume-bottle-isolated-on-transparent-background-png-image_15699685.png" alt="Veloria Perfumes" className="w-16 h-16" />
           <span className="text-xl font-bold ml-2">Veloria Perfumes</span>
         </div>
         
