@@ -10,7 +10,7 @@ const product = {
   rating: 4.7,
   reviews: 1225,
   type: "Gift Box",
-  images: ["/perfume1.jpg", "/perfume2.jpg", "/perfume3.jpg"],
+  images: ["https://rukminim1.flixcart.com/image/300/300/xif0q/shopsy-perfume/e/d/r/50-black-panton-1pc-spray-perfume-50-ml-unisex-premium-quality-original-imagqwuwzajvfq3t.jpeg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbdQw6RkS91rzMHhIVhE9s8fQGwTMuOsaNQw&s", "https://rukminim2.flixcart.com/image/850/1000/xif0q/perfume/n/l/d/-original-imagkk24zyxzymxe.jpeg?q=90&crop=false"],
   description: "A luxurious collection of long-lasting perfumes, perfect for gifting.",
   features: ["Long Lasting", "IFRA - Certified", "Imported Oils", "Made in India"]
 };

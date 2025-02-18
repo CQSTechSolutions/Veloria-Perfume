@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { Trash } from 'lucide-react';
 
 const initialCart = [
-  { id: 1, name: "Veloria Elegance", price: 79.99, quantity: 1, image: "/perfume1.jpg" },
-  { id: 2, name: "Veloria Noir", price: 89.99, quantity: 1, image: "/perfume2.jpg" },
+  { id: 1, name: "Veloria Elegance", price: 79.99, quantity: 1, image: "https://rukminim1.flixcart.com/image/300/300/xif0q/shopsy-perfume/e/d/r/50-black-panton-1pc-spray-perfume-50-ml-unisex-premium-quality-original-imagqwuwzajvfq3t.jpeg" },
+  { id: 2, name: "Veloria Noir", price: 89.99, quantity: 1, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbdQw6RkS91rzMHhIVhE9s8fQGwTMuOsaNQw&s" },
 ];
 
 const Cart = () => {
