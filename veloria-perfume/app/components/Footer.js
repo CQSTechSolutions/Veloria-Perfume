@@ -1,7 +1,16 @@
 import Link from 'next/link';
 import { Instagram, Facebook, Twitter, Youtube } from 'lucide-react';
+import ContactUs from '../contactUs/page';
+import AboutUs from '../aboutUs/page';
 
 const Footer = () => {
+  const handleContact = () => {
+    <ContactUs />
+  }
+
+  const handleAboutUs = () => {
+    <AboutUs />
+  }
   return (
     <footer className="bg-gray-900 text-white py-6 mt-10">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
@@ -14,8 +23,8 @@ const Footer = () => {
         {/* Navigation Links */}
         <div className="flex space-x-6">
           <Link href="/products" className="hover:text-gray-400">Products</Link>
-          <Link href="/about" className="hover:text-gray-400">About Us</Link>
-          <Link href="/contact" className="hover:text-gray-400">Contact</Link>
+          <Link onClick={handleAboutUs} href="/aboutUs" className="hover:text-gray-400">About Us</Link>
+          <Link onClick={handleContact} href="/contactUs" className="hover:text-gray-400">Contact Us</Link>
         </div>
         
         {/* Social Media Icons */}

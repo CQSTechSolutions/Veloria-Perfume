@@ -5,11 +5,32 @@ import Products from '../products/page';
 import Cart from '../cart/page';
 import Profile from '../profile/page';
 import ContactUs from '../contactUs/page';
+import { useEffect, useState } from 'react';
+import AboutUs from '../aboutUs/page';
 
 const Navbar = () => {
 
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCartCount(storedCart.reduce((acc, item) => acc + item.quantity, 0));
+  }, []);
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
+      setCartCount(updatedCart.reduce((acc, item) => acc + item.quantity, 0));
+    };
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
+
   const handleProducts = () => {
     <Products />
+  }
+  const handleAboutUs = () => {
+    <AboutUs />
   }
   const handleContact = () => {
     <ContactUs />
@@ -42,10 +63,13 @@ const Navbar = () => {
       {/* Navigation Links */}
       <div className="flex items-center gap-6">
         <Link onClick={handleProducts} href="/products" className="text-gray-700 hover:text-gray-900">Products</Link>
+        <Link onClick={handleAboutUs} href="/aboutUs" className="text-gray-700 hover:text-gray-900">About Us</Link>
         <Link onClick={handleContact} href="/contactUs" className="text-gray-700 hover:text-gray-900">Contact Us</Link>
         <Link onClick={handleCart} href="/cart" className="relative">
           <ShoppingCart size={24} className="text-gray-700 hover:text-gray-900" />
-          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] px-2 py-1 rounded-full">0</span>
+          {cartCount > 0 && (
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">{cartCount}</span>
+          )}
         </Link>
         <Link onClick={handleProfile} href="/profile" className="text-gray-700 hover:text-gray-900">
           <User size={24} />

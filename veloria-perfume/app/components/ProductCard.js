@@ -3,6 +3,7 @@ import { Star } from "lucide-react";
 import Link from "next/link";
 import ProductDetail from "../productDescription/page";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const ProductCard = ({ product }) => {
 
@@ -16,9 +17,9 @@ const ProductCard = ({ product }) => {
   const addToCart = () => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(storedCart);
-    console.log("Product added to cart",cart);
+    // console.log("Product added to cart",cart);
     const updatedCart = [...cart];
-    console.log("Updated Cart",updatedCart);
+    // console.log("Updated Cart",updatedCart);
     const existingProduct = updatedCart.find(item => item.id === product.id);
     if (existingProduct) {
       existingProduct.quantity += 1;
@@ -27,6 +28,9 @@ const ProductCard = ({ product }) => {
     }
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
+    window.dispatchEvent(new Event("storage"));
+    toast.success(`${product.name} added to cart!`);
+    alert(`${product.name} added to cart!`);
   };
 
   const handleProductDescription = () => {
