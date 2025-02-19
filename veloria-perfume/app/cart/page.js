@@ -1,6 +1,6 @@
 // pages/cart.js
 "use client";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Trash } from 'lucide-react';
 
 const initialCart = [
@@ -9,7 +9,11 @@ const initialCart = [
 ];
 
 const Cart = () => {
-  const [cart, setCart] = useState(initialCart);
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")));
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const updateQuantity = (id, amount) => {
     setCart(cart.map(item => item.id === id ? { ...item, quantity: Math.max(1, item.quantity + amount) } : item));
@@ -45,7 +49,7 @@ const Cart = () => {
               </div>
             ))}
           </div>
-          <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+          <div className="bg-gray-100 p-6 rounded-lg h-fit shadow-md">
             <h2 className="text-2xl font-semibold mb-4">Order Summary</h2>
             <p className="text-lg">Total: <span className="font-bold">₹{totalPrice}</span></p>
             <button className="w-full mt-4 bg-black text-white py-3 rounded-md font-semibold text-lg hover:bg-gray-800 transition">

@@ -2,8 +2,33 @@
 import { Star } from "lucide-react";
 import Link from "next/link";
 import ProductDetail from "../productDescription/page";
+import { useEffect, useState } from "react";
 
 const ProductCard = ({ product }) => {
+
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(storedCart);
+  }, []);
+
+  const addToCart = () => {
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(storedCart);
+    console.log("Product added to cart",cart);
+    const updatedCart = [...cart];
+    console.log("Updated Cart",updatedCart);
+    const existingProduct = updatedCart.find(item => item.id === product.id);
+    if (existingProduct) {
+      existingProduct.quantity += 1;
+    } else {
+      updatedCart.push({ ...product, quantity: 1 });
+    }
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
   const handleProductDescription = () => {
     // Redirect to product description page
     <ProductDetail />;
@@ -31,7 +56,7 @@ const ProductCard = ({ product }) => {
           ${product.price}
         </span>
       </Link>
-      <button className="mt-3 w-full bg-gray-900 text-white py-2 rounded-md hover:bg-gray-700 transition">
+      <button onClick={addToCart} className="mt-3 w-full bg-gray-900 text-white py-2 rounded-md hover:bg-gray-700 transition">
         Add to Cart
       </button>
     </div>
