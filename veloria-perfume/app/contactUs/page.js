@@ -1,6 +1,7 @@
 // pages/contact.js
 "use client";
 import { useState } from 'react';
+import Navbar from '../components/Navbar';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -18,6 +19,8 @@ const ContactUs = () => {
   };
 
   return (
+    <div>
+      <Navbar />
     <div className="container mx-auto py-10 px-4">
       <h1 className="text-3xl font-bold text-center mb-6">Contact Us</h1>
       <p className="text-center text-gray-600 mb-8">Have any questions? Feel free to reach out!</p>
@@ -58,6 +61,7 @@ const ContactUs = () => {
           </button>
         </form>
       </div>
+    </div>
     </div>
   );
 };

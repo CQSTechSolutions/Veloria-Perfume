@@ -2,6 +2,7 @@
 "use client";
 import { useEffect, useState } from 'react';
 import { Trash } from 'lucide-react';
+import Navbar from '../components/Navbar';
 
 
 const Cart = () => {
@@ -31,6 +32,8 @@ const Cart = () => {
   const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
 
   return (
+    <div>
+      <Navbar />
     <div className="container mx-auto py-10 px-4">
       <h1 className="text-3xl font-bold mb-6">Shopping Cart</h1>
       {cart.length > 0 ? (
@@ -65,6 +68,7 @@ const Cart = () => {
       ) : (
         <p className="text-gray-600 text-lg">Your cart is empty.</p>
       )}
+    </div>
     </div>
   );
 };

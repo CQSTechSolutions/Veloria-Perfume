@@ -43,7 +43,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="bg-white shadow-md p-4 flex justify-between items-center">
+    <nav className="bg-white shadow-md p-4 flex justify-between items-center fixed top-0 left-0 right-0 z-10">
       {/* Logo */}
       <Link href="/" className="flex items-center">
         <img src= "https://png.pngtree.com/png-clipart/20240804/original/pngtree-luxury-perfume-bottle-isolated-on-transparent-background-png-image_15699685.png" alt="Veloria Perfumes" className="w-16 h-16" />

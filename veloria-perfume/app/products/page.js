@@ -1,3 +1,4 @@
+import Navbar from '../components/Navbar';
 import ProductCard from '../components/ProductCard';
 
 const Products = () => {
@@ -11,6 +12,8 @@ const Products = () => {
   ];
 
   return (
+    <div>
+      <Navbar />
     <div className="container mx-auto py-10">
       <h1 className="text-4xl font-bold text-center mb-10">Explore Veloria Perfumes</h1>
       
@@ -19,6 +22,7 @@ const Products = () => {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+    </div>
     </div>
   );
 };

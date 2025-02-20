@@ -1,8 +1,12 @@
 
 "use client";
 
+import Navbar from "../components/Navbar";
+
 const AboutUs = () => {
   return (
+    <div>
+      <Navbar />
     <div className="container mx-auto py-10 px-4">
       <h1 className="text-4xl font-bold text-center mb-6">About Veloria Perfumes</h1>
       
@@ -47,6 +51,7 @@ const AboutUs = () => {
           Veloria Perfumes is proud to be trusted by thousands of customers worldwide. We strive to create memorable fragrances that leave a lasting impression. Join our community and indulge in timeless elegance.
         </p>
       </section>
+    </div>
     </div>
   );
 };
