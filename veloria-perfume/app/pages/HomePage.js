@@ -34,11 +34,11 @@ const HomePage = () => {
       <Navbar />
 
       {/* Carousel Section */}
-      <section className="relative w-full h-[400px] overflow-hidden">
+      <section className="relative w-full h-[600px] overflow-hidden">
         <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           {offers.map((offer) => (
             <div key={offer.id} className="w-full flex-shrink-0 relative">
-              <img src={offer.image} alt={offer.text} className="w-full h-[400px] object-fill" />
+              <img src={offer.image} alt={offer.text} className="w-full h-[600px] object-fill" />
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0">
                 {/* <h2 className="text-white text-2xl font-bold">{offer.text}</h2> */}
               </div>
